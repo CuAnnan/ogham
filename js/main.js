@@ -30,7 +30,7 @@
     for(let i = 0; i < fixedText.length; i++)
     {
       let char = fixedText.charAt(i);
-      if(char === '.')
+      if(char === '.' && i < fixedText.length - 1)
       {
         oghamScript += end+'<br/>'+start;
       }
@@ -52,7 +52,7 @@
       {
         if(stave === end)
         {
-          plainText += '<br/>';
+          plainText += '.<br/>';
         }
         else
         {
