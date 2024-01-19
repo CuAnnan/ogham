@@ -19,7 +19,7 @@
         .replaceAll('ui', '3')
         .replaceAll('ia', '4')
         .replaceAll('ae', '5');
-      for(let i = 0; i < this.value.length; i++)
+      for(let i = 0; i < fixedText.length; i++)
       {
         let char = fixedText.charAt(i);
         if(char === '.')
