@@ -14,7 +14,6 @@
 
   function latinToOgham()
   {
-    let oghamScript = start;
     let fixedText = $latinInput.value;
     if($dipthongs.checked === true)
     {
@@ -27,19 +26,27 @@
         .replaceAll('ia', '4')
         .replaceAll('ae', '5');
     }
-    for(let i = 0; i < fixedText.length; i++)
+
+    let sentences = fixedText.split(/[.\n]/);
+    let oghamStrands = [];
+    for(let sentence of sentences)
     {
-      let char = fixedText.charAt(i);
-      if(char === '.' && i < fixedText.length - 1)
+      sentence = sentence.trim();
+      let oghamStrand = start;
+      if(sentence)
       {
-        oghamScript += end+'<br/>'+start;
+        for(let i = 0; i < sentence.length; i++)
+        {
+          let char = sentence.charAt(i);
+          let pos = alphabet.indexOf(char);
+          let oghamChar = ogham.charAt(pos);
+          oghamStrand += oghamChar;
+        }
+        oghamStrand += end;
+        oghamStrands.push(oghamStrand);
       }
-      let pos = alphabet.indexOf(char);
-      let oghamChar = ogham.charAt(pos);
-      oghamScript += oghamChar;
     }
-    oghamScript += end;
-    $oghamOutput.innerHTML = oghamScript;
+    $oghamOutput.innerHTML = oghamStrands.join('<br/>');
   }
 
   function oghamToLatin()
