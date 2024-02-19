@@ -36,7 +36,7 @@
     {
       sentence = sentence.trim();
       let oghamStrand = "";
-      if($forfSuffix.checked === true)
+      if($forfPrefix.checked === true)
       {
         oghamStrand += start;
       }
