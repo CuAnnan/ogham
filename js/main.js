@@ -68,13 +68,6 @@
           plainText += letter;
         }
       }
-      // fixedText = fixedText
-      //         .toLowerCase()
-      //         .replaceAll('ea', '1')
-      //         .replaceAll('oi', '2')
-      //         .replaceAll('ui', '3')
-      //         .replaceAll('ia', '4')
-      //         .replaceAll('ae', '5');
       plainText = plainText
         .replaceAll('?', 'ng')
         .replaceAll('1', 'ea')
@@ -82,8 +75,6 @@
         .replaceAll('3', 'ui')
         .replaceAll('4', 'ia')
         .replaceAll('5', 'ae');
-
-
       $latinOutput.innerHTML = plainText;
     }
   }
