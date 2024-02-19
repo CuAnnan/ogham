@@ -2,11 +2,13 @@
   let ogham = ' ᚁᚂᚃᚄᚅᚆᚇᚈᚉᚊᚋᚌᚍᚎᚏᚐᚑᚒᚓᚔᚕᚖᚗᚘᚙᚚ';
   let alphabet = ' blfsnhdtcqmg?zraouei12345p';
   let start = '᚛';
-  let end = '᚜'
+  let end = '᚜';
 
   let $latinInput;
   let $oghamOutput;
   let $dipthongs;
+  let $forfPrefix;
+  let $forfSuffix;
 
   let $oghamInput;
   let $latinOutput;
@@ -15,6 +17,7 @@
   function latinToOgham()
   {
     let fixedText = $latinInput.value;
+
     if($dipthongs.checked === true)
     {
       fixedText = fixedText
@@ -32,7 +35,11 @@
     for(let sentence of sentences)
     {
       sentence = sentence.trim();
-      let oghamStrand = start;
+      let oghamStrand = "";
+      if($forfSuffix.checked === true)
+      {
+        oghamStrand += start;
+      }
       if(sentence)
       {
         for(let i = 0; i < sentence.length; i++)
@@ -42,7 +49,10 @@
           let oghamChar = ogham.charAt(pos);
           oghamStrand += oghamChar;
         }
-        oghamStrand += end;
+        if($forfSuffix.checked === true)
+        {
+          oghamStrand += end;
+        }
         oghamStrands.push(oghamStrand);
       }
     }
@@ -85,6 +95,8 @@
     $dipthongs = document.getElementById('replaceDipthongs');
     $oghamInput = document.getElementById('ogham');
     $latinOutput = document.getElementById('plainTextOutput');
+    $forfPrefix = document.getElementById('includeForfedPrefix');
+    $forfSuffix = document.getElementById('includeForfedSuffix');
     $latinInput.addEventListener('keyup', latinToOgham);
     $dipthongs.addEventListener('change', latinToOgham);
     $oghamInput.addEventListener('keyup', oghamToLatin);

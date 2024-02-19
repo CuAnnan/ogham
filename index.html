@@ -13,10 +13,15 @@
 
 <body>
   <form method="post" onsubmit="return false;">
-    <div><label for="plaintext">Plain text:</label><textarea id="plaintext"></textarea></div>
-    <div><label for="replaceDipthongs">Replace dipthongs:</label><input type="checkbox" id="replaceDipthongs" checked/></div>
+    <div>
+      <label for="replaceDipthongs">Replace dipthongs:</label><input type="checkbox" id="replaceDipthongs"/>
+      <label for="includeForfedPrefix">Include leading forfed (᚛)</label><input type="checkbox" id="includeForfedPrefix"/>
+      <label for="includeForfedSuffix">Include trailing forfed (᚜)</label><input type="checkbox" id="includeForfedSuffix"/>
+    </div>
+    <div>
+      <label for="plaintext">Plain text:</label><textarea id="plaintext"></textarea>
+    </div>
     <div id="oghamOutput"></div>
-
     <hr/>
 
     <div><label for="ogham">Ogham input:</label><textarea id="ogham"></textarea></div>

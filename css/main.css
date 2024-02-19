@@ -1,4 +1,7 @@
 #oghamOutput
 {
   font-size:3em;
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
+
 }
