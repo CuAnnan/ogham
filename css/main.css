@@ -3,5 +3,19 @@
   font-size:3em;
   writing-mode: tb-rl;
   transform: rotate(-180deg);
+}
 
+#options > span
+{
+  border-right:1px solid black;
+}
+
+#options > span:hover
+{
+  background-color:#ddd;
+}
+
+#options > span:last-child
+{
+  border:none;
 }

@@ -99,7 +99,11 @@
     $forfSuffix = document.getElementById('includeForfedSuffix');
     $latinInput.addEventListener('keyup', latinToOgham);
     $dipthongs.addEventListener('change', latinToOgham);
+    $forfPrefix.addEventListener('change', latinToOgham);
+    $forfSuffix.addEventListener('change', latinToOgham);
     $oghamInput.addEventListener('keyup', oghamToLatin);
+    latinToOgham();
+    oghamToLatin();
   });
 
 })();
